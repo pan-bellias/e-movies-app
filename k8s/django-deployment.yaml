@@ -14,12 +14,12 @@ spec:
     spec:
       initContainers:
         - name: django-init
-          image: pan-bellias/e-movies-app
+          image: ghcr.io/pan-bellias/e-movies-app
           command: ["/bin/bash"]
           args: ["-c", "python manage.py makemigrations && python manage.py migrate"]
       containers:
         - name: django
-          image: pan-bellias/e-movies-app
+          image: ghcr.io/pan-bellias/e-movies-app
           ports:
             - containerPort: 8000
           envFrom:
