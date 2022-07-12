@@ -26,3 +26,5 @@ spec:
             - configMapRef:
                 name: django-config
           imagePullPolicy: Always
+      imagePullSecrets:
+        - name: regcred
