@@ -17,4 +17,4 @@ spec:
   accessModes:
   - ReadWriteOnce
   hostPath:
-    path: /data/postgresql
+    path: /var/lib/postgresql/data/postgres
