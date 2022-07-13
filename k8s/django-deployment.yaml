@@ -2,8 +2,9 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: django
+  namespace: default
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       component: django
@@ -11,15 +12,16 @@ spec:
     metadata:
       labels:
         component: django
+      namespace: default
     spec:
       initContainers:
         - name: django-init
-          image: ghcr.io/pan-bellias/e-movies-app
+          image: ghcr.io/pan-bellias/e-movies-app:latest
           command: ["/bin/bash"]
           args: ["-c", "python manage.py makemigrations && python manage.py migrate"]
       containers:
         - name: django
-          image: ghcr.io/pan-bellias/e-movies-app
+          image: ghcr.io/pan-bellias/e-movies-app:latest
           ports:
             - containerPort: 8000
           envFrom:

@@ -3,6 +3,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: pg-pvc-claim
 spec:
+  storageClassName: manual
   accessModes:
     - ReadWriteOnce
   resources:

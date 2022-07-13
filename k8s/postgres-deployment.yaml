@@ -18,7 +18,7 @@ spec:
             claimName: pg-pvc-claim
       containers:
         - name: postgres
-          image: "postgres:11"
+          image: postgres:11
           ports:
             - containerPort: 5432
           env:
