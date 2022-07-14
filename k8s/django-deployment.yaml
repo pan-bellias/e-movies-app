@@ -14,11 +14,13 @@ spec:
         component: django
       namespace: default
     spec:
+      '''
       initContainers:
         - name: django-init
           image: ghcr.io/pan-bellias/e-movies-app:latest
           command: ["/bin/bash"]
           args: ["-c", "python manage.py makemigrations && python manage.py migrate"]
+      '''
       containers:
         - name: django
           image: ghcr.io/pan-bellias/e-movies-app:latest
